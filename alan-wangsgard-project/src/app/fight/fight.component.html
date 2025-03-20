@@ -1,0 +1,14 @@
+<img src={{pokemon1.sprites.front_default}}>
+<br>
+<h1>{{pokemon1.name}}</h1>
+<p>{{pokemon1Health}}</p>
+<div *ngIf="!gameover">
+<button (click)="attack()">Attack</button>
+<button (click)="block()">Block</button>
+</div>
+<br>
+<img src={{pokemon2.sprites.front_default}}>
+<br>
+<h1>{{pokemon2.name}}</h1>
+<p>{{pokemon2Health}}</p>
+<app-game-over *ngIf="gameover" [won]='won' (restart)="onRestart()"></app-game-over>
