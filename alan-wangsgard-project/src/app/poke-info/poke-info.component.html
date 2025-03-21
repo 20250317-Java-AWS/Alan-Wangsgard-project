@@ -1,6 +1,7 @@
 <!-- <div *ngFor="let thing of pokemon | keyvalue">
 <p>{{thing.key}}{{thing.value}}</p>
 </div> -->
+<div class="yes">
 <input type="text" [(ngModel)]="pokeName">
 <button (click)="updatePokemon()">Get Pokemon Info</button>
 <br>
@@ -8,10 +9,11 @@
 <br>
 <h1>{{pokemon.name}}</h1>
 <p>Abilities:</p>
-<ul style="list-style-type: disk;">
-    <li style="display: inline; margin: 10px; color: red;" *ngFor="let ability of pokemon.abilities">{{ability.ability.name}}</li>
-</ul>
+<div class="abilityContainer">
+    <div class="ability" *ngFor="let ability of pokemon.abilities">{{ability.ability.name}}</div>
+</div>
 <p>Moves:</p>
-<ul>
-    <li style="display: inline; margin: 10px; color: orangered;" *ngFor="let move of pokemon.moves">{{move.move.name}}</li>
-</ul>
+<div class="movesContainer">
+    <div class="move" *ngFor="let move of pokemon.moves">{{move.move.name}}</div>
+</div>
+</div>

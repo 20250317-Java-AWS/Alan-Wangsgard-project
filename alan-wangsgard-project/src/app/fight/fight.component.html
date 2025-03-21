@@ -1,14 +1,20 @@
-<img src={{pokemon1.sprites.front_default}}>
-<br>
-<h1>{{pokemon1.name}}</h1>
-<p>{{pokemon1Health}}</p>
-<div *ngIf="!gameover">
-<button (click)="attack()">Attack</button>
-<button (click)="block()">Block</button>
+<div class="fightContainer">
+    <div class="pokemonContainer">
+    <img src={{pokemon1.sprites.front_default}}>
+    <br>
+    <h1>{{pokemon1.name}}</h1>
+    <p><span class="health">{{pokemon1Health}}</span> HP</p>
+    <div *ngIf="!gameover">
+    <button (click)="attack()" [disabled]="!playerTurn">Attack</button>
+    <button (click)="block()" [disabled]="!playerTurn">Block</button>
+    </div>
 </div>
 <br>
-<img src={{pokemon2.sprites.front_default}}>
-<br>
-<h1>{{pokemon2.name}}</h1>
-<p>{{pokemon2Health}}</p>
+    <div class="pokemonContainer">
+    <img src={{pokemon2.sprites.front_default}}>
+    <br>
+    <h1>{{pokemon2.name}}</h1>
+    <p><span class="health">{{pokemon2Health}}</span> HP</p>
+    </div>
+</div>
 <app-game-over *ngIf="gameover" [won]='won' (restart)="onRestart()"></app-game-over>

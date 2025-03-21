@@ -1,0 +1,19 @@
+.fightContainer{
+    text-align: center;
+    display: grid;
+    gap: 20px;
+    grid-template-columns:  auto auto;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.pokemonContainer{
+    padding: 10px;
+    grid-row: 1;
+    background-color: white;
+    box-shadow: 0px 0px 10px 5px black;
+}
+
+.health{
+    color: crimson;
+}

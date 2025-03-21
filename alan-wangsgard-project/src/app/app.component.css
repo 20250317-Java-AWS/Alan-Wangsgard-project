@@ -1,0 +1,19 @@
+.nav{
+    background-color: black;
+    text-align: right;
+    
+}
+
+.nav button{
+    background-color: slategray;
+    border: none;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.nav button:hover{
+    background-color: orangered;
+    color: white;
+
+}

@@ -16,6 +16,7 @@ pokemon1Health : number = 100
 pokemon2: any;
 pokemon2Health : number = 100
 won: string = ""
+playerTurn: boolean = true;
 gameover: boolean = false
   pokeApi: PokeApiService;
   pokeName: string =""
@@ -27,27 +28,37 @@ gameover: boolean = false
   }
   attack(){
     this.pokemon2Health-=Math.floor(Math.random()*50)
-    setTimeout(()=>{}, 1000)
-    this.pokemon1Health-=Math.floor(Math.random()*50)
+    this.playerTurn = false
     this.check()
+    setTimeout(()=>{this.pokemon1Health-=Math.floor(Math.random()*50) 
+    this.playerTurn = true;
+    this.check()
+
+    }, 1000)
+    
+
   }
   block(){
-    setTimeout(()=>{}, 1000)
-    let damage = Math.floor(Math.random()*50)-Math.floor(Math.random()*50)
-    if(damage > 0)
-    this.pokemon1Health-=damage
+    this.playerTurn = false
+    setTimeout(()=>{let damage = Math.floor(Math.random()*50)-Math.floor(Math.random()*50)
+      if(damage > 0)
+      this.pokemon1Health-=damage
+  this.playerTurn = true;
   this.check()
+
+}, 1000
+    )
+    
+
   }
   check(){
     if(this.pokemon1Health <=0){
       this.won = "lost"
       this.gameover = true
-      console.log("gameover")
 
     }else if(this.pokemon2Health<=0){
       this.won = "won"
       this.gameover = true
-      console.log("gameover")
 
     }
    
@@ -62,8 +73,5 @@ gameover: boolean = false
   }
   onRestart(){
       this.setUp()
-  }
-  updatePokemon(){
-    // this.pokeApi.getPokemon(this.pokeName).subscribe((body)=>{this.pokemon=body})
   }
 }
